@@ -9,6 +9,9 @@ These spaces do not overwhelm people because the people lack ability; they overw
 the environment demands constant filtering, decision-making, and orientation at once. Cairn
 reduces that load: one step at a time, timed to the person.
 
+The name: a cairn is a stack of stones that marks a trail one step at a time, often left by
+a traveler who came before to help the next person find their way.
+
 > Live demo (runs in your browser): **https://ananyasdrafts.github.io/cairn/** · design in
 > [docs/DESIGN.md](docs/DESIGN.md). Simulation-first.
 
