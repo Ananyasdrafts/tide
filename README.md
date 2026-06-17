@@ -11,15 +11,38 @@ reduces that load: one step at a time, timed to the person.
 
 > Early build, simulation-first. The design is in [docs/DESIGN.md](docs/DESIGN.md).
 
-## status
+## what it does
 
-Built from scratch, bottom up. Done so far:
+Built from scratch, simulation-first. The engine:
 
-- **campus**: the space as a graph, with routing that minimises distance plus a penalty on
-  sensory load (so it can prefer a calmer way).
+- **campus**: the space as a graph; routing minimises distance plus a penalty on sensory
+  load, so it can prefer a calmer way.
+- **travelers**: simulated people with their own pace, hesitancy, stress sensitivity, and
+  preferred step format (text, icon, haptic).
+- **guidance**: a route becomes short, paced steps; lighter and slower as stress rises.
+- **journey**: walks a traveler through a route, grounding when stress runs high, and scores
+  it (time, hesitation, peak stress, overload).
+- **personalisation**: a small on-device model reads a short calibration and predicts the
+  person's preferred modality and sensitivity, so guidance can fit them.
+- **federated learning**: that model is trained across many simulated people with FedAvg,
+  weights only, raw behaviour never leaves the device.
 
-Next: simulated travelers, paced step-by-step guidance that pauses when unsure, a stress and
-grounding model, and on-device personalisation trained with federated learning.
+## what I found
+
+On a population of simulated travelers (25 held out):
+
+- **Personalising the guidance roughly removes overload.** Against a static one-size policy,
+  overload moments per journey fall from 0.32 to 0.00 and peak stress from 0.54 to 0.20,
+  matching an oracle that knows each person's true traits.
+- **Federated learning costs almost nothing.** Trained with weights only (data stays local),
+  it reaches modality accuracy 0.64 and sensitivity error 0.11, against 0.68 and 0.10 for
+  centralised training on pooled data.
+
+![personalised vs static](docs/images/personalization.png)
+
+The honest read: most of the gain comes from adapting the pace and route to a person's
+sensitivity, which is predicted well; the modality is a secondary, noisier signal. And the
+privacy of federated learning is close to free here, which is the point.
 
 ## why it is built in a simulator
 
@@ -32,7 +55,8 @@ after.
 
 ```bash
 pip install -e ".[dev]"
-pytest
+pytest                      # 18 tests
+python scripts/run_eval.py  # the personalisation + federated study, writes the figure
 ```
 
 ## where it goes
