@@ -9,7 +9,8 @@ These spaces do not overwhelm people because the people lack ability; they overw
 the environment demands constant filtering, decision-making, and orientation at once. Tide
 reduces that load: one step at a time, timed to the person.
 
-> Early build, simulation-first. The design is in [docs/DESIGN.md](docs/DESIGN.md).
+> Live demo (runs in your browser): **https://ananyasdrafts.github.io/tide/** · design in
+> [docs/DESIGN.md](docs/DESIGN.md). Simulation-first.
 
 ## what it does
 
@@ -49,8 +50,8 @@ privacy of federated learning is close to free here, which is the point.
 A browser simulator lets you set how sensitive a traveler is and compare static versus
 personalised guidance as they walk to the lecture hall: the route (calmer when
 personalised), the paced steps one at a time, the stress meter, and grounding when stress
-runs high. See [web/README.md](web/README.md) to run it (it goes on GitHub Pages once this
-repo is public).
+runs high. **Live at https://ananyasdrafts.github.io/tide/**; see [web/README.md](web/README.md)
+to run it locally.
 
 ## why it is built in a simulator
 

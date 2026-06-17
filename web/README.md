@@ -17,4 +17,4 @@ python -m http.server 8000
 # open http://localhost:8000
 ```
 
-(Deploys to GitHub Pages once the repo is public.)
+Live at https://ananyasdrafts.github.io/tide/.
