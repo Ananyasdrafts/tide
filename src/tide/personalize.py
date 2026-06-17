@@ -65,10 +65,19 @@ class Model:
         return np.hstack([X, np.ones((X.shape[0], 1))])
 
     def predict(self, feats: np.ndarray) -> tuple[str, float]:
-        x = self._x(feats)
-        modality = MODALITIES[int(np.argmax(x @ self.W, axis=1)[0])]
-        sensitivity = float(1.0 / (1.0 + np.exp(-(x @ self.v)))[0])
+        modality, sensitivity, _ = self.predict_conf(feats)
         return modality, sensitivity
+
+    def predict_conf(self, feats: np.ndarray) -> tuple[str, float, float]:
+        """Like predict, plus a confidence in the modality call (the softmax max prob)."""
+        x = self._x(feats)
+        logits = x @ self.W
+        logits = logits - logits.max(axis=1, keepdims=True)
+        p = np.exp(logits)
+        p = p / p.sum(axis=1, keepdims=True)
+        idx = int(np.argmax(p, axis=1)[0])
+        sensitivity = float(1.0 / (1.0 + np.exp(-(x @ self.v)))[0])
+        return MODALITIES[idx], sensitivity, float(p[0, idx])
 
     def get_weights(self) -> np.ndarray:
         return np.concatenate([self.W.ravel(), self.v.ravel()])

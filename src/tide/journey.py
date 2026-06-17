@@ -38,7 +38,7 @@ def run_journey(campus: Campus, start: str, goal: str, traveler: Traveler, polic
     ground = 0
     for a, b in zip(route, route[1:]):
         edge = campus.edge_between(a, b)
-        s = policy.settings(traveler.stress)
+        s = policy.settings(traveler.stress, edge.sensory)
         out = traveler.take_step(edge.sensory, s.step_load, s.modality, s.cadence)
         total_time += out.duration
         if out.hesitated:

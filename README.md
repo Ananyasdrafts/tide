@@ -30,20 +30,33 @@ Built from scratch, simulation-first. The engine:
 
 ## what I found
 
-On a population of simulated travelers (25 held out):
+On held-out simulated travelers, over five seeds:
 
-- **Personalising the guidance roughly removes overload.** Against a static one-size policy,
-  overload moments per journey fall from 0.32 to 0.00 and peak stress from 0.54 to 0.20,
-  matching an oracle that knows each person's true traits.
-- **Federated learning costs almost nothing.** Trained with weights only (data stays local),
-  it reaches modality accuracy 0.64 and sensitivity error 0.11, against 0.68 and 0.10 for
-  centralised training on pooled data.
+- **Personalising the guidance roughly removes overload.** Overload moments per journey fall
+  from 0.70 (a static one-size policy) to 0.05, against 0.02 for an oracle that knows each
+  person's true traits.
+- **The benefit is largest for the people who need it most.** Split by sensitivity, the most
+  sensitive travelers go from 1.39 overload moments to 0.11; the least sensitive barely change,
+  they were managing already.
 
-![personalised vs static](docs/images/personalization.png)
+  ![by sensitivity](docs/images/by_sensitivity.png)
 
-The honest read: most of the gain comes from adapting the pace and route to a person's
-sensitivity, which is predicted well; the modality is a secondary, noisier signal. And the
-privacy of federated learning is close to free here, which is the point.
+- **Most of the gain is pacing.** An ablation: easing the pace alone reaches 0.21 overload,
+  matching the modality alone 0.43, and taking the calmer route alone does little here (0.70);
+  together they reach 0.05.
+
+  ![ablation](docs/images/ablation.png)
+
+- **Federated learning costs almost nothing.** Weights only, data local: modality accuracy
+  0.76 and sensitivity error 0.10, against 0.82 and 0.09 for centralised training on pooled
+  data.
+- **Two things I tried that did not help, reported straight.** Easing ahead of a busy segment
+  (anticipation) matched simply reacting to current stress (0.26 vs 0.26), because on these
+  short routes the reactive easing is already quick enough. And acting cautiously when the
+  model is unsure (confidence-aware) slightly hurt (0.05 to 0.07, and on the low-confidence
+  cases 0.08 to 0.11), because the model is accurate enough that caution costs more than it
+  saves. Both would matter more with lagged feedback or a weaker model; both are implemented
+  and kept off the main path.
 
 ## demo
 
@@ -64,7 +77,7 @@ after.
 
 ```bash
 pip install -e ".[dev]"
-pytest                      # 18 tests
+pytest                      # 21 tests
 python scripts/run_eval.py  # the personalisation + federated study, writes the figure
 ```
 

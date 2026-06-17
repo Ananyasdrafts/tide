@@ -38,3 +38,26 @@ def test_calm_policy_takes_the_quieter_route():
     pol = PersonalizedPolicy(modality="text", sensitivity=0.9)
     route = c.route("entrance", "hall_A", sensory_weight=pol.route_weight())
     assert "courtyard" in route and "cafeteria" not in route
+
+
+def test_ablation_flags_isolate_each_adaptation():
+    # modality-only: the modality changes, the step/cadence/route do not
+    p = PersonalizedPolicy("haptic", 0.8, ease_pace=False, calm_route=False)
+    s = p.settings(0.0, 0.9)
+    assert s.modality == "haptic" and s.step_load == 0.4 and s.cadence == 0.5
+    assert p.route_weight() == 1.0
+
+
+def test_low_confidence_is_cautious():
+    sure = PersonalizedPolicy("icon", 0.2, confidence=0.9)
+    unsure = PersonalizedPolicy("icon", 0.2, confidence=0.2)
+    assert sure.settings(0.0).modality == "icon"       # trust a confident guess
+    assert unsure.settings(0.0).modality == "text"     # fall back to a safe default
+    assert unsure.route_weight() > sure.route_weight()  # and assume more sensitive
+
+
+def test_anticipation_eases_for_a_busy_upcoming_segment():
+    p = PersonalizedPolicy("text", 0.0, use_sensitivity=False, calm_route=False, anticipate=True)
+    calm = p.settings(0.0, 0.1)
+    busy = p.settings(0.0, 0.9)
+    assert busy.step_load < calm.step_load
