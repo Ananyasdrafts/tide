@@ -2,7 +2,7 @@
 
 A campus is locations (nodes) joined by paths (edges). Each path has a distance and a
 sensory load (how loud, crowded, and visually busy it is, on a 0..1 scale). Routing
-minimises distance plus a penalty on sensory load, so Tide can prefer a calmer way even
+minimises distance plus a penalty on sensory load, so Cairn can prefer a calmer way even
 when it is a little longer. The penalty weight is how much the person wants to trade
 distance for calm.
 """

@@ -1,4 +1,4 @@
-# Tide demo (in-browser simulator)
+# Cairn demo (in-browser simulator)
 
 Watch the idea run: set how sensitive a traveler is, pick their preferred step format, and
 compare a static one-size guidance with a personalised one as they walk to the lecture hall.
@@ -17,4 +17,4 @@ python -m http.server 8000
 # open http://localhost:8000
 ```
 
-Live at https://ananyasdrafts.github.io/tide/.
+Live at https://ananyasdrafts.github.io/cairn/.

@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from tide.travelers import MODALITIES, Traveler, TravelerProfile, sample_profiles
+from cairn.travelers import MODALITIES, Traveler, TravelerProfile, sample_profiles
 
 
 def _profile(modality="text"):

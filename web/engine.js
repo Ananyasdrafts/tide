@@ -1,4 +1,4 @@
-// engine.js - a small JS port of the Tide simulation, for the demo.
+// engine.js - a small JS port of the Cairn simulation, for the demo.
 // Mirrors campus routing, the traveler step model, guidance, and the journey thresholds.
 
 export const MODALITIES = ["text", "icon", "haptic"];

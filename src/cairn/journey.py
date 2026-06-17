@@ -3,7 +3,7 @@
 This is the simulation that ties it together: the campus gives a route, the policy tunes
 each step, the traveler reacts from their profile, and when stress runs high the journey
 pauses for grounding (which costs time but brings stress back down). The result is the set
-of numbers Tide is judged on: how long it took, how much hesitation, how high stress
+of numbers Cairn is judged on: how long it took, how much hesitation, how high stress
 peaked, how often it tipped into overload.
 """
 

@@ -1,8 +1,8 @@
-# Tide, design notes
+# Cairn, design notes
 
 An adaptive guidance system for people who find overstimulating public spaces hard to
 navigate, autistic and sensory-sensitive people, people with anxiety, anyone for whom a
-crowded campus or transit hub turns a simple errand into an exhausting one. Tide breaks a
+crowded campus or transit hub turns a simple errand into an exhausting one. Cairn breaks a
 goal into short, paced steps, learns how the individual moves, and steps in with grounding
 before they are overwhelmed rather than after.
 
@@ -11,7 +11,7 @@ before they are overwhelmed rather than after.
 These spaces do not overwhelm people because the people lack ability. They overwhelm
 because the environment demands constant filtering, decision-making, and orientation all at
 once. A dense map or a long set of directions adds to that load instead of reducing it. So
-Tide gives one step at a time, timed to the person, and routes around the loud and crowded
+Cairn gives one step at a time, timed to the person, and routes around the loud and crowded
 stretches when it can.
 
 It is the same idea as the rest of my work: a system that notices the build-up early, is

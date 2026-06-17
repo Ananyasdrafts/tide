@@ -2,7 +2,7 @@
 
 import pytest
 
-from tide.campus import Campus, Edge, sample_campus
+from cairn.campus import Campus, Edge, sample_campus
 
 
 def test_neighbors_and_edges():

@@ -1,4 +1,4 @@
-"""Tide: adaptive guidance for navigating overstimulating public spaces.
+"""Cairn: adaptive guidance for navigating overstimulating public spaces.
 
 Built simulation-first. The pieces, bottom up:
   campus      - the space as a graph, with calm routing (this module set is first)

@@ -1,4 +1,4 @@
-# Tide
+# Cairn
 
 An adaptive guidance system for navigating overstimulating public spaces. It turns a goal,
 like reaching a lecture hall, into short, paced steps instead of a dense map, learns how the
@@ -6,10 +6,10 @@ individual moves, routes around the loud and crowded stretches, and steps in wit
 before the person is overwhelmed.
 
 These spaces do not overwhelm people because the people lack ability; they overwhelm because
-the environment demands constant filtering, decision-making, and orientation at once. Tide
+the environment demands constant filtering, decision-making, and orientation at once. Cairn
 reduces that load: one step at a time, timed to the person.
 
-> Live demo (runs in your browser): **https://ananyasdrafts.github.io/tide/** · design in
+> Live demo (runs in your browser): **https://ananyasdrafts.github.io/cairn/** · design in
 > [docs/DESIGN.md](docs/DESIGN.md). Simulation-first.
 
 ## what it does
@@ -63,7 +63,7 @@ On held-out simulated travelers, over five seeds:
 A browser simulator lets you set how sensitive a traveler is and compare static versus
 personalised guidance as they walk to the lecture hall: the route (calmer when
 personalised), the paced steps one at a time, the stress meter, and grounding when stress
-runs high. **Live at https://ananyasdrafts.github.io/tide/**; see [web/README.md](web/README.md)
+runs high. **Live at https://ananyasdrafts.github.io/cairn/**; see [web/README.md](web/README.md)
 to run it locally.
 
 ## why it is built in a simulator

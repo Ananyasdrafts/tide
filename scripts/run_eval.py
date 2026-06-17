@@ -1,4 +1,4 @@
-"""The honest evaluation of Tide.
+"""The honest evaluation of Cairn.
 
 Over several seeds (mean and spread), on held-out simulated travelers:
 
@@ -21,12 +21,12 @@ from pathlib import Path
 
 import numpy as np
 
-from tide.campus import sample_campus
-from tide.federated import centralized, fed_avg
-from tide.guidance import PersonalizedPolicy, StaticPolicy
-from tide.journey import run_journey
-from tide.personalize import build_dataset, calibration_features, label
-from tide.travelers import MODALITIES, Traveler, sample_profiles
+from cairn.campus import sample_campus
+from cairn.federated import centralized, fed_avg
+from cairn.guidance import PersonalizedPolicy, StaticPolicy
+from cairn.journey import run_journey
+from cairn.personalize import build_dataset, calibration_features, label
+from cairn.travelers import MODALITIES, Traveler, sample_profiles
 
 START, GOAL = "entrance", "hall_B"
 SEEDS = [1, 2, 3, 4, 5]

@@ -2,10 +2,10 @@
 
 import numpy as np
 
-from tide.campus import sample_campus
-from tide.guidance import PersonalizedPolicy, StaticPolicy
-from tide.journey import run_journey
-from tide.travelers import Traveler, TravelerProfile
+from cairn.campus import sample_campus
+from cairn.guidance import PersonalizedPolicy, StaticPolicy
+from cairn.journey import run_journey
+from cairn.travelers import Traveler, TravelerProfile
 
 
 def _sensitive(modality="haptic"):

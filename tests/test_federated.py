@@ -2,9 +2,9 @@
 
 import numpy as np
 
-from tide.federated import centralized, fed_avg
-from tide.personalize import build_dataset, calibration_features
-from tide.travelers import sample_profiles
+from cairn.federated import centralized, fed_avg
+from cairn.personalize import build_dataset, calibration_features
+from cairn.travelers import sample_profiles
 
 
 def _modality_accuracy(model, profiles):

@@ -2,8 +2,8 @@
 
 import numpy as np
 
-from tide.personalize import N_FEAT, Model, build_dataset, calibration_features
-from tide.travelers import MODALITIES, TravelerProfile, sample_profiles
+from cairn.personalize import N_FEAT, Model, build_dataset, calibration_features
+from cairn.travelers import MODALITIES, TravelerProfile, sample_profiles
 
 
 def test_calibration_features_length():

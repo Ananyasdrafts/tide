@@ -1,6 +1,6 @@
 """Simulated travelers: people with their own pacing, hesitation, and sensitivity.
 
-These are the population Tide is built and measured against, and later the many "devices"
+These are the population Cairn is built and measured against, and later the many "devices"
 federated learning trains across. Each traveler has a stable profile; their behaviour on a
 route, how long a step takes, when they hesitate, how stress builds, is generated from that
 profile and from how well the guidance fits them (step size, modality, pacing). That lets us

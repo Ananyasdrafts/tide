@@ -1,4 +1,4 @@
-// main.js - drives the Tide simulator demo.
+// main.js - drives the Cairn simulator demo.
 
 import {
   NODES, EDGES, route, edgeBetween, Traveler, routeWeight, settings, OVERLOAD, GROUND_AT,

@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tide"
+name = "cairn"
 version = "0.1.0"
 description = "An adaptive guidance system that helps people navigate overstimulating public spaces, one paced step at a time."
 readme = "README.md"
