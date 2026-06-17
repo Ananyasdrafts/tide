@@ -134,6 +134,39 @@ dataset or API gates, it is reproducible and uses no private data.
 The split is deliberate: v1 proves the adaptive guidance and the federated personalisation
 with zero data gates, and names exactly what real data and access the product needs next.
 
+## from v1 to a product: the MVP and how it scales
+
+**MVP (the smallest real, useful version): one campus, not the world.** It sidesteps the two
+hard problems, precise indoor positioning and a sensory-load dataset, by starting small.
+
+- a single university's spaces, with the graph authored once from facilities maps.
+- a goal in (from that campus's destinations), then two to five paced steps, one at a time,
+  low-stimulus, with pause, repeat, and "I'm stuck".
+- advance by user confirmation (tap done) plus coarse GPS and a few beacons or QR checkpoints
+  at key junctions, so it does not need centimetre-level indoor positioning.
+- on-device personalisation of pacing and modality, seeded by the federated population model.
+- grounding triggered by "I'm stuck" or long hesitation. No wearable and no emergency alerts
+  in the MVP; those are opt-in fast-follows with proper consent.
+
+**How it scales.**
+
+- The bottleneck is onboarding a new space (its graph, sensory annotations, checkpoints), not
+  the engine. So scaling is really a space-onboarding pipeline, and institutions that already
+  hold the maps are the natural channel.
+- Two privacy-respecting network effects build the missing data through use: federated
+  personalisation improves cold-start as more people contribute model updates; and passive,
+  consented sensing (noise, dwell, hesitation) gradually builds a sensory-load map of each
+  space, so the dataset that does not exist yet gets built by the product simply running.
+- By reach: land at one university's disability services, show it helps neurodivergent
+  students, then expand university by university (each brings its map and its users), then
+  employers and clinics, and eventually an API that maps and campus apps embed, so cognitive
+  accessibility lives in the infrastructure.
+
+**What validates each step.** v1 in simulation: does personalising actually cut hesitation and
+overload versus a static baseline. MVP at one campus: do real users complete tasks with less
+reported overload than with a normal map (a small study, with IRB). At scale: retention,
+task completion, and self-reported overload across cohorts.
+
 ## build order
 
 1. campus model + calm routing (done first)
