@@ -35,6 +35,16 @@ pip install -e ".[dev]"
 pytest
 ```
 
+## where it goes
+
+Built in a simulator first. The product around it would use real routing and phone and watch
+signals, add a safety layer (grounding, and an optional alert to a trusted contact if
+distress persists), and could scale from a simple app to universities, employers, and
+accessibility programs, eventually a low-stimulus layer inside maps and campus systems.
+
+Assistive AI should not replace someone's independence; it should protect it, by giving
+information in a form their nervous system can actually use.
+
 ## license
 
 MIT
