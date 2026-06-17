@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Tide</h1>
+      <p class="tag">
+        Guidance for navigating overstimulating spaces, one paced step at a time. This is the
+        simulator: set how sensitive the traveler is, then watch a static one-size guidance
+        and a personalised one walk them to the lecture hall, and what it does to their stress.
+      </p>
+    </header>
+
+    <section class="stage">
+      <div class="view">
+        <svg id="map" viewBox="0 0 690 440" preserveAspectRatio="xMidYMid meet"></svg>
+        <div id="grounding" class="grounding">
+          <div class="breathe"></div>
+          <div>grounding, breathe</div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <div class="block">
+          <label>this traveler is <span id="sens-label">moderately</span> sensitive</label>
+          <input id="sens" type="range" min="0" max="100" value="60" />
+        </div>
+        <div class="block">
+          <label>preferred step format</label>
+          <div id="modality" class="seg">
+            <button data-m="text" class="on">text</button>
+            <button data-m="icon">icon</button>
+            <button data-m="haptic">haptic</button>
+          </div>
+        </div>
+        <div class="block">
+          <label>guidance</label>
+          <div id="mode" class="seg">
+            <button data-mode="static" class="on">static (one size)</button>
+            <button data-mode="personalized">personalised</button>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button id="start">Start journey</button>
+          <button id="stuck" disabled>I'm stuck</button>
+        </div>
+
+        <div id="step" class="step"></div>
+
+        <div class="meter">
+          <label>stress <span id="stress-val">0%</span></label>
+          <div class="track"><div id="stress-bar" class="bar"></div></div>
+        </div>
+
+        <p id="summary" class="summary"></p>
+        <p class="note">
+          The personalisation model and the federated training live in the Python engine; here
+          you set the traits directly to see what fitting the guidance to a person does.
+        </p>
+      </aside>
+    </section>
+  </main>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -44,6 +44,14 @@ The honest read: most of the gain comes from adapting the pace and route to a pe
 sensitivity, which is predicted well; the modality is a secondary, noisier signal. And the
 privacy of federated learning is close to free here, which is the point.
 
+## demo
+
+A browser simulator lets you set how sensitive a traveler is and compare static versus
+personalised guidance as they walk to the lecture hall: the route (calmer when
+personalised), the paced steps one at a time, the stress meter, and grounding when stress
+runs high. See [web/README.md](web/README.md) to run it (it goes on GitHub Pages once this
+repo is public).
+
 ## why it is built in a simulator
 
 Like a flight simulator for the problem: reproducible, no real-user data, and the place to
