@@ -96,6 +96,44 @@ only in the individual.
 The line I keep coming back to: assistive AI should not replace someone's independence, it
 should protect it, by giving information in a form their nervous system can actually use.
 
+## what building this needs (data and resources)
+
+**v1 (this build): almost no external data.** Simulation-first by design, so there are no
+dataset or API gates, it is reproducible and uses no private data.
+
+- campus: a hand-authored graph (the sample campus; a real indoor map could be imported
+  later). No data.
+- travelers: generated parametrically. The ranges are grounded in the literature on
+  processing speed, cognitive load, and stress under sensory load, that is citations, not a
+  dataset, so the simulation is defensible rather than arbitrary.
+- guidance, stress, grounding: rule and dynamics models. No data.
+- personalisation + federated learning: trained on the simulated travelers' own generated
+  behaviour, with FedAvg implemented in code. No external data.
+- eval + demo: produced from the simulation. No data.
+- tools: numpy, matplotlib, pytest; the demo is plain HTML and JavaScript. No GPU, light
+  compute.
+
+**Beyond v1 (the real product): where real data and resources come in, honestly.**
+
+- routing: Google / Apple / Mapbox APIs (keys, cost) outdoors. Indoors is the hard part,
+  indoor maps plus positioning (BLE beacons, WiFi fingerprinting, or visual positioning),
+  an open problem.
+- a sensory-load signal per place (crowd, noise, visual busyness): this largely does not
+  exist as a dataset. It would need real-time phone sensing (the mic for noise) or
+  crowd-sourced data. A genuine gap, and a possible contribution.
+- wearables and stress: HealthKit / Google Fit / device SDKs for heart rate and motion; the
+  stress-detection model can be bootstrapped and validated on public affective-computing
+  datasets (WESAD and similar) and then adapted. Overload data from the target population is
+  scarce and sensitive.
+- the people: this is assistive technology, so it needs co-design and testing with autistic,
+  sensory-sensitive, and anxious users, and IRB and consent for any study and for the
+  emergency-contact feature. Building it without them would be the wrong move.
+- delivery: a mobile app and a small backend for federated aggregation; the on-device model
+  keeps behaviour private by design.
+
+The split is deliberate: v1 proves the adaptive guidance and the federated personalisation
+with zero data gates, and names exactly what real data and access the product needs next.
+
 ## build order
 
 1. campus model + calm routing (done first)
