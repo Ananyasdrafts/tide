@@ -134,6 +134,29 @@ dataset or API gates, it is reproducible and uses no private data.
 The split is deliberate: v1 proves the adaptive guidance and the federated personalisation
 with zero data gates, and names exactly what real data and access the product needs next.
 
+## grounded in the literature
+
+The simulation's numbers are parameters, not values fit to data. They are set to be
+directionally consistent with what research reports, so the model is defensible rather than
+arbitrary:
+
+- The problem is real, and busy environments make it worse. Sensory processing differences
+  are near-universal in autism (sensory symptoms reported in roughly 69 to 93 percent of
+  cases), high-sensory settings exacerbate them, and sensory-friendly ones reduce distress
+  (Sensory processing in autism, Frontiers in Psychiatry, 2025).
+- Calmer routes with fewer decisions help. Wayfinding research finds people favour the path
+  with the least decision load, which is why routing penalises busy, high-decision segments.
+- Short, one-at-a-time steps lower load. Cognitive Load Theory (Sweller) shows that breaking
+  a task into single worked steps reduces intrinsic and extraneous load, and that an
+  instruction's format and modality change the load it imposes, which is why guidance tunes
+  step size and modality.
+- Grounding through slow breathing eases acute stress. Slow-paced breathing reliably lowers
+  state anxiety and physiological arousal (higher vagal tone, lower sympathetic activity, in
+  meta-analytic and physiological evidence), which is what the grounding mode models.
+- Federated averaging is the standard privacy-preserving training method (McMahan, Moore,
+  Ramage, Hampson, Aguera y Arcas, 2017, arXiv 1602.05629), which the federated learning
+  here implements.
+
 ## from v1 to a product: the MVP and how it scales
 
 **MVP (the smallest real, useful version): one campus, not the world.** It sidesteps the two

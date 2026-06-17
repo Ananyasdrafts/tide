@@ -67,12 +67,32 @@ pytest                      # 18 tests
 python scripts/run_eval.py  # the personalisation + federated study, writes the figure
 ```
 
-## where it goes
+## design and scaling
 
-Built in a simulator first. The product around it would use real routing and phone and watch
-signals, add a safety layer (grounding, and an optional alert to a trusted contact if
-distress persists), and could scale from a simple app to universities, employers, and
-accessibility programs, eventually a low-stimulus layer inside maps and campus systems.
+This repo is the simulator: it proves the adaptive guidance and the federated personalisation
+with no external data. The full design, including what the real product needs and how it
+scales, is in [docs/DESIGN.md](docs/DESIGN.md); the short version:
+
+**The real product (parked).** Beyond the simulator it would use real routing (Google or
+Apple Maps APIs) and real phone and wearable signals, and would add the safety layer
+(grounding, plus an optional alert to a trusted contact if distress persists). The two hard
+pieces are indoor positioning and a sensory-load signal per place, which does not exist as a
+dataset. And because this is assistive technology, it needs co-design and testing with
+autistic, sensory-sensitive, and anxious people, with IRB and consent. None of that is needed
+for the simulation, but the design names all of it.
+
+**MVP and scaling.** The smallest real version is one campus, advancing by user confirmation
+plus a few checkpoints, which sidesteps precise indoor positioning. It scales space by space
+through universities, employers, and accessibility programs, and two privacy-respecting
+network effects build the missing data through use: federated personalisation improves
+cold-start as more people contribute weights, and consented passive sensing gradually builds
+a sensory-load map of each space.
+
+**Grounded in the literature.** The simulation parameters are set to be directionally
+consistent with research, not fit to data: cognitive load theory (short single steps lower
+load), wayfinding (people favour fewer-decision routes), sensory-processing work (busy
+environments exacerbate overload), slow-breathing evidence (grounding lowers arousal), and
+federated averaging (McMahan et al., 2017). Citations in [docs/DESIGN.md](docs/DESIGN.md).
 
 Assistive AI should not replace someone's independence; it should protect it, by giving
 information in a form their nervous system can actually use.
